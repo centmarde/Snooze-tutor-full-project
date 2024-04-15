@@ -1,0 +1,11 @@
+{
+  "appId": "com.example.app",
+  "appName": "Snooze Tutor",
+  "bundledWebRuntime": false,
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}

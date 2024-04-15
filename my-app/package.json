@@ -1,0 +1,35 @@
+{
+  "name": "capacitor-app",
+  "version": "1.0.0",
+  "description": "An Amazing Capacitor App",
+  "main": "index.js",
+  "keywords": [
+    "capacitor",
+    "mobile"
+  ],
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "ionic:build": "npm run build",
+    "ionic:serve": "npm run start"
+  },
+  "dependencies": {
+    "@capacitor/android": "5.7.0",
+    "@capacitor/camera": "latest",
+    "@capacitor/core": "^5.7.0",
+    "@capacitor/splash-screen": "latest",
+    "@popperjs/core": "^2.11.8",
+    "@supabase/supabase-js": "^2.39.6",
+    "bootstrap": "^5.3.2",
+    "bootstrap-icons": "^1.11.3"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.4",
+    "@capacitor/cli": "^5.7.0",
+    "sass": "^1.71.0",
+    "vite": "^2.9.13"
+  },
+  "author": "",
+  "license": "ISC"
+}

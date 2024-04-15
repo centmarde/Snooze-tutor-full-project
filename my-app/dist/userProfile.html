@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tres Marias</title>
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <script
+      type="module"
+      src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.js"
+    ></script>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.432f0523.ico" />
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkFwcCIsCiAgInNob3J0X25hbWUiOiAiQXBwIiwKICAic3RhcnRfdXJsIjogImluZGV4Lmh0bWwiLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi00OC53ZWJwIiwKICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIiwKICAgICAgInNpemVzIjogIjQ4eDQ4IiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi03Mi53ZWJwIiwKICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIiwKICAgICAgInNpemVzIjogIjcyeDcyIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi05Ni53ZWJwIiwKICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIiwKICAgICAgInNpemVzIjogIjk2eDk2IiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi0xMjgud2VicCIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICJzaXplcyI6ICIxMjh4MTI4IiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi0xOTIud2VicCIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICJzaXplcyI6ICIxOTJ4MTkyIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi0yNTYud2VicCIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICJzaXplcyI6ICIyNTZ4MjU2IiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi01MTIud2VicCIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfQogIF0sCiAgImJhY2tncm91bmRfY29sb3IiOiAiIzMxZDUzZCIsCiAgInRoZW1lX2NvbG9yIjogIiMzMWQ1M2QiCn0K" />
+    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    
+    
+    
+    <meta name="theme-color" content="#31d53d" />
+    <script type="module" crossorigin src="/assets/userProfile.9e78f729.js"></script>
+    <link rel="modulepreload" href="/assets/loader.266516c8.js">
+    <link rel="stylesheet" href="/assets/loader.c785496c.css">
+  </head>
+
+  <body>
+    <!-- loader -->
+    <div class="container">
+      <div id="preloader">
+        <div class="wrapper">
+          <div class="box-wrap">
+            <div class="box one"></div>
+            <div class="box two"></div>
+            <div class="box three"></div>
+            <div class="box four"></div>
+            <div class="box five"></div>
+            <div class="box six"></div>
+          </div>
+        </div>
+      </div>
+      <!--  loader -->
+
+      <!-- navbar -->
+      <nav class="navbar fixed-top bg-body-tertiary shadow">
+        <div class="container-fluid">
+          <a class="ms-2" href="index.html" style="color: #2b1055;"
+            ><i class="fa fa-long-arrow-left fa-2x" aria-hidden="true"></i
+          ></a>
+          <div class="d-flex pagination">
+            <div class="d-flex" id="userContainer"></div>
+          </div>
+        </div>
+      </nav>
+      <!-- navbarend -->
+      
+
+      <!-- spacer -->
+      <div form id="userspacer"></div>
+
+      <div class="m-3">
+        <div class="alert alert-success d-none" role="alert"></div>
+        <div class="alert alert-danger d-none" role="alert"></div>
+      </div>
+      <!--alert bar-->
+
+      <!-- Notifications -->
+      <div class="alert alert-success d-none" role="alert"></div>
+      <div class="alert alert-danger d-none" role="alert"></div>
+
+      <!-- contents -->
+    </div>
+    <!-- end of container body -->
+
+    <!-- Item Form -->
+    <div class="container" id="alldata">
+      <!-- spinner -->
+      <div class="row pb-5" id="get_data">
+        <div class="col-sm-12 d-flex justify-content-center align-items-center">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden ">Loading...</span>
+          </div>
+          <b class="ms-2">Loading Data...</b>
+        </div>
+      </div>
+
+    </div>
+       <!-- Item Form edit info -->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <!-- Modal Btn and Form -->
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="form_modal"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabindex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                    Edit Information 
+                  </h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <!-- Item Form -->
+                <form id="form_item">
+                  <!-- Modal Body -->
+                  <div class="modal-body">
+                    <span>must fill up all form</span>
+                    <!-- Username Field -->
+                    <div class="row mb-3">
+                      <div class="col-sm-12">
+                        <input
+                          class="form-control"
+                          type="text"
+                          name="username"
+                          id="username"
+                          placeholder="username"
+                         
+                        />
+                      </div>
+                      <div class="col-sm-12 mt-3">
+                        <input
+                          class="form-control"
+                          type="text"
+                          name="firstname"
+                          id="firstname"
+                          placeholder="firstname"
+                         
+                        />
+                      </div>
+
+                      <div class="col-sm-12 mt-3">
+                        <input
+                          class="form-control"
+                          type="text"
+                          name="lastname"
+                          id="lastname"
+                          placeholder="lastname"
+                         
+                        />
+                      </div>
+
+                      <div class="col-sm-12 mt-3">
+                        <input
+                          class="form-control"
+                          type="text"
+                          name="mobile_no"
+                          id="mobile_no"
+                          placeholder="Mobile Number"
+                          rows="1"
+                        />
+                      </div>
+                    </div>
+
+                    
+              
+
+                    <!-- about Field -->
+                    <div class="row mb-3">
+                      <div class="col-sm-12">
+                        <textarea
+                          class="form-control"
+                          name="about"
+                          id="about"
+                          placeholder="Tell us about your self"
+                          rows="1"
+                          
+                        ></textarea>
+                      </div>
+                    </div>
+
+                    <!-- Dislikes -->
+                    <div class="row mb-3">
+                      <div class="col-sm-12">
+                        <textarea
+                          class="form-control"
+                          name="dislikes"
+                          id="dislikes"
+                          placeholder="Dislikes"
+                          rows="1"
+                        ></textarea>
+                      </div>
+                    </div>
+
+                    <!-- likes -->
+                    <div class="row mb-3">
+                      <div class="col-sm-12">
+                        <textarea
+                          class="form-control"
+                          name="likes"
+                          id="likes"
+                          placeholder="Interest/Likes"
+                          rows="1"
+                        
+                        ></textarea>
+                      </div>
+                    </div>
+
+                    <!-- Image File Field; Comment this div, if no upload functionality -->
+                    <div class="row mb-3">
+                      
+                      <div class="col-sm-12" >
+                        <input
+                          class="form-control"
+                          type="file"
+                          name="image_path"
+                          accept="image/*"
+                          id="imageUpload" 
+                          rows="1"
+                        />
+                        <span class="ms-1 text-secondary" >Change Profile</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Modal Footer -->
+                  <div class="modal-footer">
+                    <button
+                      id="modal_close"
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button
+                      class="btn w-25 d-flex align-items-center justify-content-center"
+                      type="submit"
+                      style="background-color: #2b1055; color: white"
+                    >
+                      <!--  onclick="window.location.href='./items.html'" -->
+                      Submit
+                    </button>
+                  </div>
+                </form>
+                <!-- End Slides Form -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <!-- end of modal -->
+
+ <!-- Item Form about modal-->
+ <div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <!-- Modal Btn and Form -->
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="form_modal_about"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                Information
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <!-- Item Form -->
+            <form id="form_item_about">
+              <!-- Modal Body -->
+              <div class="modal-body">
+                <!-- Username Field -->
+                <div class="row mb-3">
+                 
+
+                  <!-- Item Form -->
+    <div class="container" id="sidedata">
+    </div>
+
+
+
+                </div>
+              </div>
+              <!-- Modal Footer -->
+              <div class="modal-footer">
+                <button
+                  id="modal_close"
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                
+              </div>
+            </form>
+            <!-- End Slides Form -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- end of modal -->
+  
+  <!-- Start of Sets -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <!-- Modal Btn and Form -->
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="modal_sets"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                 Sets Created
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <!-- Item Form -->
+              <form>
+                <!-- Modal Body -->
+                <div class="modal-body">
+                  <!-- Username Field -->
+                  <div class="row mb-3">
+                   
+  
+                    <!-- Item Form -->
+      <div class="container" id="sets_index">
+      </div>
+                  
+  
+                  </div>
+                </div>
+                <!-- Modal Footer -->
+                <div class="modal-footer">
+                  <button
+                    id="modal_close"
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  
+                </div>
+              </form>
+              <!-- End Slides Form -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  <!-- end of Sets -->
+
+  <!-- inner Set Edit -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <!-- Modal Btn and Form -->
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="editSets_modal"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="staticBackdropLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                 Pages
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <!-- Item Form -->
+              <form id="form_sets">
+                <!-- Modal Body -->
+                <div class="modal-body">
+                  <!-- Username Field -->
+                  <div class="row mb-3">
+                   
+  
+                    <!-- Item Form -->
+                     <div class="container" id="sets_index2">
+                    </div>
+                  
+  
+                  </div>
+                </div>
+                <!-- Modal Footer -->
+                <div class="modal-footer">
+                  <button
+                    id="modal_close"
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  
+                </div>
+              </form>
+              <!-- End Slides Form -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  <!-- end of inner Set Edit -->
+
+
+
+ <!--  modal for questions  editing 1 to 1-->
+ <div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <!-- Modal Btn and Form -->
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="form_modal_questions"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">
+               Question Edit
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <!-- Item Form -->
+            <form id="form_modal_questions_edit">
+              <!-- Modal Body -->
+              <div class="modal-body">
+                <span>Must fill out all entry fields.</span>
+               
+                <div class="row mb-3">
+                  <div class="col-sm-12">
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="tittle"
+                      id="tittle"
+                      placeholder="title"
+                    
+                     
+                    />
+                  </div>
+                </div>
+
+                
+                <div class="row mb-3">
+                  <div class="col-sm-12">
+                    <textarea
+                      class="form-control"
+                      name="question_text"
+                      id="question_text"
+                      placeholder="question_text"
+                      rows="5"
+                     
+                      
+                    ></textarea>
+                  </div>
+                </div>
+
+               
+                <div class="row mb-3">
+                  <div class="col-sm-12">
+                    <textarea
+                      class="form-control"
+                      name="answer_text"
+                      id="answer_text"
+                      placeholder="put your answer here"
+                      rows="5"
+                     
+                    ></textarea>
+                  </div>
+                </div>
+                
+              </div>
+              <!-- Modal Footer -->
+              <div class="modal-footer">
+                <button
+                  id="modal_close"
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  class="btn  w-25 d-flex align-items-center justify-content-center"
+                  style="background-color: #2b1055; color: white"
+                  type="submit"
+               
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- end of modal editing -->
+
+   <!--  modal for set_questions  editing-->
+ <div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-lg-12">
+      <!-- Modal Btn and Form -->
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="editSets_modal2"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">
+               Question Edit
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <!-- Item Form -->
+            <form id="edit_set_question">
+              <!-- Modal Body -->
+              <div class="modal-body">
+                <div class="mb-3 row ">
+                  <div class="col-sm-12  col-lg-12">
+                    <div>
+                      <div class="mb-3">
+                        <label
+                          for="exampleFormControlTextarea1"
+                          class="form-label"
+                          >Question:</label
+                        >
+                        <textarea
+                          class="form-control"
+                          id="question"
+                          name="question"
+                          placeholder="Type your Question here..."
+                          rows="8"
+                        ></textarea>
+                      </div>
+                    </div>
+                    <div class="container">
+                      <label class="form-label">Choices:</label>
+                      <div></div>
+                      <div class="d-flex">
+                        <input
+                          class="form-control form-control-sm"
+                          type="text"
+                          placeholder="Input Choice A"
+                          aria-label=".form-control-sm example"
+                          name="choiceA"
+                          id="choiceA"
+                          required
+                        />
+                      </div>
+                      <div class="d-flex">
+                        <input
+                          class="form-control form-control-sm mt-3"
+                          type="text"
+                          placeholder="Input Choice B"
+                          aria-label=".form-control-sm example"
+                          name="choiceB"
+                          id="choiceB"
+                          required
+                        />
+                      </div>
+                      <div class="d-flex">
+                        <input
+                          class="form-control form-control-sm mt-3"
+                          type="text"
+                          placeholder="Input Choice C"
+                          aria-label=".form-control-sm example"
+                          name="choiceC"
+                          id="choiceC"
+                          required
+                        />
+                      </div>
+                      <div class="d-flex">
+                        <input
+                          class="form-control form-control-sm mt-3"
+                          type="text"
+                          placeholder="Input Choice D"
+                          aria-label=".form-control-sm example"
+                          name="choiceD"
+                          id="choiceD"
+                          required
+                        />
+                      </div>
+
+                      <select
+                        class="form-select mt-4"
+                        aria-label="Default select example"
+                        name="answer"
+                        id="answer"
+                        required
+                      >
+                        <option selected>The Correct Answer</option>
+                        <option value="a">Answer A</option>
+                        <option value="b">Answer B</option>
+                        <option value="c">Answer C</option>
+                        <option value="d">Answer D</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Modal Footer -->
+              <div class="modal-footer">
+                <button
+                  id="close_special2"
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#editSets_modal"
+                >
+                  Close
+                </button>
+                <button
+                  class="btn w-25 d-flex align-items-center justify-content-center"
+                  type="button"
+                  id="final_edit"
+                  style="background-color: #2b1055; color: white;"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- end of modal editing set_questions -->
+
+
+
+
+
+      <br />
+     
+
+
+    <script>
+      var loader = document.getElementById("preloader");
+      window.addEventListener("load", function () {
+        loader.style.display = "none";
+      });
+    </script>
+    
+
+  </body>
+</html>
