@@ -16,8 +16,9 @@ form_login.onsubmit = async (e) => {
   if (session != null) {
     localStorage.setItem("access_token", session.access_token);
     localStorage.setItem("refresh_token", session.refresh_token);
-    localStorage.setItem("user_id", user.id);
     let { data: profiles, error: error2 } = await supabase.from("profiles").select("*");
+    localStorage.setItem("user_id", profiles[0].id);
+    console.log(profiles[0].id);
     if (session != null) {
       profiles[0].Role;
       user.id;

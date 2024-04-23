@@ -110,9 +110,10 @@ async function getDatas() {
               <div class="d-flex justify-content-center" >
                 <!-- connector to javaS image -->
                 <div
-           
+                  class = "mb-5"
+                  style="width: 200px; height: 180px;"
                   id="imageContainer" 
-                ><div data-id="${user_info.image_path}"><img class="block my-2 border border-light border-2 rounded-circle" src="${itemsImageUrl + user_info.image_path}" width="100%" height="200vh"></div></div>
+                ><div data-id="${user_info.image_path}"><img class="block my-2 border border-light border-2 rounded-circle" src="${itemsImageUrl + user_info.image_path}" width="100%" height="200rem"></div></div>
               </div>
               <div>
                 <!-- Button trigger modal Profile Picture-->
@@ -209,8 +210,8 @@ async function getDatas() {
     });
     questions.forEach((data, index) => {
       questionContainer += ` <div class="col-sm-12 col-lg-6 d-flex justify-content-center mb-3 mt-5">
-      <div class="card justify-content-center" style="width: 18rem" data-id="${data.id}" >
-        <div class="card" style="width: 18rem">
+      <div class="card justify-content-center" style="width: 100%" data-id="${data.id}" >
+        <div class="card" style="width: 100%">
           <div class="card-body">
             <h4 class="card-title">${data.tittle}</h4>
             <p class="card-text">
@@ -395,7 +396,7 @@ async function getSets() {
                         <h5 class="card-title">${data.title}</h5>
                         <p class="card-text">${data.details}</p>
                         <p class="card-text mt-3">${data.created_at}</p>
-                        <div class="d-flex justify-content-end gap-2 d-md-block">
+                        <div class="d-flex justify-content-center gap-2 ">
                           <button class="btn me-2 edit-set-btn" data-bs-toggle="modal"
                           data-bs-target="#editSets_modal" data-id="${data.id}" type="button" style="background-color: #2b1055; color: white;">Edit Set</button>
                           <button id="final_delete" data-id="${data.id}" class="btn" delete-set-btn" style="background-color: #a679eb; color: white; data-id="${data.id}" type="button">Delete</button>
@@ -462,8 +463,8 @@ async function getPages(setId) {
                 <p class="card-text mt-1">C. ${data2.choiceC}</p>
                 <p class="card-text mt-1">D. ${data2.choiceD}</p>
                 <b class="card-text mt-2">Answer. ${data2.answer}</b>
-                <div class="d-flex justify-content-end gap-2 d-md-block">
-                  <button class="btn me-2 edit-set-btn" data-bs-toggle="modal" data-bs-target="#editSets_modal2" data-id="${data2.id}" type="button" style="background-color: #2b1055; color: white;">Edit Set</button>
+                <div class="d-flex justify-content-center gap-2 ">
+                  <button class="btn me-2 edit-set-btn " data-bs-toggle="modal" data-bs-target="#editSets_modal2" data-id="${data2.id}" type="button" style="background-color: #2b1055; color: white;">Edit Set</button>
                   <button id="inner_delete" class="btn" style="background-color: #a679eb; color: white;" data-id="${data2.id}" type="button">Delete</button>
                 </div>
               </div>

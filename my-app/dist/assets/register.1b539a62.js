@@ -21,10 +21,8 @@ form_register.onsubmit = async (e) => {
     if (user_id != null) {
       const { data: data2, error: error2 } = await supabase.from("profiles").insert([
         {
-          password: formData.get("password"),
           username: formData.get("username"),
-          id: user_id,
-          email: formData.get("email")
+          user_id
         }
       ]).select();
       if (error2 == null) {
