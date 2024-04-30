@@ -152,11 +152,11 @@ async function getDatas() {
             <div class="col">
             <ul class="nav nav-tabs">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Listings</a>
+              <a class="nav-link active" aria-current="page" >List</a>
             </li>
             <li class="nav-item" data-bs-toggle="modal" data-bs-target="#form_modal_about" >
               <a class="nav-link" style="color: #2b1055; background-color: rgb(240, 240, 240);
-            }" href="#">About</a>
+            }" >About</a>
             </li>
             </li>
             <li class="nav-item">
@@ -166,7 +166,7 @@ async function getDatas() {
             </li>
             <li class="nav-item">
               <a class="nav-link" style="color: #2b1055; background-color: rgb(220, 220, 220);
-            }" href="#">Tasks</a>
+            }" >Comments</a>
             </li>
           </ul>
              
