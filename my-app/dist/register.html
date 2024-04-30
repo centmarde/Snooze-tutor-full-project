@@ -18,6 +18,7 @@
   <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkFwcCIsCiAgInNob3J0X25hbWUiOiAiQXBwIiwKICAic3RhcnRfdXJsIjogImluZGV4Lmh0bWwiLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi00OC53ZWJwIiwKICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIiwKICAgICAgInNpemVzIjogIjQ4eDQ4IiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi03Mi53ZWJwIiwKICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIiwKICAgICAgInNpemVzIjogIjcyeDcyIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi05Ni53ZWJwIiwKICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIiwKICAgICAgInNpemVzIjogIjk2eDk2IiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi0xMjgud2VicCIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICJzaXplcyI6ICIxMjh4MTI4IiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi0xOTIud2VicCIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICJzaXplcyI6ICIxOTJ4MTkyIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi0yNTYud2VicCIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICJzaXplcyI6ICIyNTZ4MjU2IiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi01MTIud2VicCIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfQogIF0sCiAgImJhY2tncm91bmRfY29sb3IiOiAiIzMxZDUzZCIsCiAgInRoZW1lX2NvbG9yIjogIiMzMWQ1M2QiCn0K" />
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   
   
   
@@ -77,26 +78,26 @@
     
       <form id="form_register" class=" container col-lg-6 col-md-8 col-sm-12 mx-auto" >
         
-        <div id class="form-group mt-2">
-          <label for="email">Email-address</label>
-          <input name="email" type="email" class="form-control" id="email" placeholder="Enter email" autocomplete="email"
+        <div id class="form-floating mb-3 mx-2">
+          <input name="email" type="email" class="form-control" id="floatingEmail" placeholder="Enter email" autocomplete="email"
             required>
+            <label for="email" id="labelleft"><i class="bi bi-envelope-at me-1"></i>Email Address:</label>
         </div>
         
-        <div class="form-group mt-2">
-          <label for="username">Username</label>
+        <div class="form-floating mb-3 mx-2">
           <input name="username" type="text" class="form-control" id="username" placeholder="*Smith" required>
+          <label for="usersername" id="labelleft"><i class="bi bi-person me-1"></i>Username</label>
         </div>
     
-        <div class="form-group">
-          <label for="password">Password</label>
+        <div class="form-floating mb-3 mx-2">
           <input name="password" type="password" class="form-control" id="password" placeholder="Password" required>
+          <label for="password" id="labelleft"><i class="bi bi-key me-1"></i>Password</label>
         </div>
     
-        <div class="form-group mt-2">
-          <label for="password_confirm">Password Confirmation</label>
+        <div class="form-floating mb-3 mx-2">
           <input name="password_confirm" type="password" class="form-control" id="password_confirm"
             placeholder="Password-confirmation" required>
+            <label for="password_confirm" id="labelleft"><i class="bi bi-key me-1"></i>Password Confirmation</label>
         </div>
     
         <div class="text-center justify-content-center my-2">

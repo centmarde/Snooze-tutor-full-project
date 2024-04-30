@@ -16,15 +16,12 @@ form_login.onsubmit = async (e) => {
   if (session != null) {
     localStorage.setItem("access_token", session.access_token);
     localStorage.setItem("refresh_token", session.refresh_token);
-    let { data: profiles, error: error2 } = await supabase.from("profiles").select("*");
+    localStorage.setItem("auth_id", user == null ? void 0 : user.id);
+    let { data: profiles, error: error2 } = await supabase.from("profiles").select("*").eq("user_id", localStorage.getItem("auth_id"));
     localStorage.setItem("user_id", profiles[0].id);
     console.log(profiles[0].id);
-    if (session != null) {
-      profiles[0].Role;
-      user.id;
-      window.location.pathname = "/home.html";
-      successNotification("Login Successfully", 10);
-    }
+    window.location.pathname = "/home.html";
+    successNotification("Login Successfully", 10);
   } else {
     errorNotification("Error Please Try again or check your password", 10);
     console.log(error);
