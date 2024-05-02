@@ -33,8 +33,8 @@
      <!-- fonts end -->
 
     <meta name="theme-color" content="#31d53d" />
-    <script type="module" crossorigin src="/assets/home.f6088fdf.js"></script>
-    <link rel="modulepreload" href="/assets/loader.266516c8.js">
+    <script type="module" crossorigin src="/assets/home.827a2327.js"></script>
+    <link rel="modulepreload" href="/assets/loader.ea51d4ef.js">
     <link rel="modulepreload" href="/assets/mover.71caf343.js">
     <link rel="stylesheet" href="/assets/loader.c785496c.css">
   </head>
@@ -436,7 +436,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="container">
-          <input class="form-control mr-sm-2" type="text" name="keyword" placeholder="Input title or descreption." aria-label="Search">
+        <div class="form-floating mb-3 mx-2">
+          <input name="keyword" type="text" id="floatingPass" class="form-control" 
+          placeholder="Input title or descreption." aria-label="Search" required>
+            <label  id="labelleft"> <i class="fa fa-search" aria-hidden="true"></i> Input title or descreption.</label>
+      </div>
       </div>
       <div class="modal-footer">
         <button id="modal_close_search" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

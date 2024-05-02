@@ -1,4 +1,4 @@
-import { s as supabase, a as successNotification, e as errorNotification } from "./loader.266516c8.js";
+import { s as supabase, a as successNotification, e as errorNotification } from "./loader.ea51d4ef.js";
 const form_register = document.getElementById("form_register");
 form_register.onsubmit = async (e) => {
   var _a;

@@ -1,4 +1,4 @@
-import { s as supabase, e as errorNotification, a as successNotification } from "./loader.266516c8.js";
+import { s as supabase, e as errorNotification, a as successNotification } from "./loader.ea51d4ef.js";
 const itemsImageUrl = "https://plsyfklzwmasyypcuwei.supabase.co/storage/v1/object/public/profilePic/";
 const userId = localStorage.getItem("user_id");
 document.getElementById("form_modal_questions");
@@ -213,7 +213,7 @@ async function getDatas() {
       <div class="card justify-content-center" style="width: 100%" data-id="${data.id}" >
         <div class="card" style="width: 100%">
           <div class="card-body">
-            <h4 class="card-title">${data.tittle}</h4>
+            <h4 class="card-title">${data.title}</h4>
             <p class="card-text">
             ${data.question_text}
             </p>
