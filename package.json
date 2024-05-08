@@ -22,7 +22,8 @@
     "@popperjs/core": "^2.11.8",
     "@supabase/supabase-js": "^2.39.6",
     "bootstrap": "^5.3.2",
-    "bootstrap-icons": "^1.11.3"
+    "bootstrap-icons": "^1.11.3",
+    "toastify-js": "^1.12.0"
   },
   "devDependencies": {
     "@capacitor/assets": "^3.0.4",
