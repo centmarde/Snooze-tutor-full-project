@@ -1,10 +1,10 @@
-import { s as supabase, a as successNotification, e as errorNotification } from "./loader.266516c8.js";
+import { s as supabase, a as successNotification, e as errorNotification } from "./loader.ea51d4ef.js";
 const form_login = document.getElementById("form_login");
 const forgot_pass = document.getElementById("forgot_pass");
 form_login.onsubmit = async (e) => {
   e.preventDefault();
-  document.querySelector("#form_login button").disabled = true;
-  document.querySelector("#form_login button").innerHTML = `<div class="spinner-border me-2" role="status"></div><span>Loading...</span>`;
+  document.querySelector("#login_button").disabled = true;
+  document.querySelector("#login_button").innerHTML = `<div class="spinner-border spinner-border-sm me-2" role="status"></div><span>Loading...</span>`;
   const formData = new FormData(form_login);
   let { data, error } = await supabase.auth.signInWithPassword({
     email: formData.get("email"),
@@ -20,8 +20,8 @@ form_login.onsubmit = async (e) => {
     let { data: profiles, error: error2 } = await supabase.from("profiles").select("*").eq("user_id", localStorage.getItem("auth_id"));
     localStorage.setItem("user_id", profiles[0].id);
     console.log(profiles[0].id);
-    window.location.pathname = "/home.html";
     successNotification("Login Successfully", 10);
+    window.location.pathname = "/home.html";
   } else {
     errorNotification("Error Please Try again or check your password", 10);
     console.log(error);
@@ -61,4 +61,17 @@ document.addEventListener("DOMContentLoaded", function() {
     lavender.style.transform = "rotate(" + randomize(-5, 5) + "deg)";
     lavender.style.left = randomize(-5, 5) + "px";
   }, 3e3);
+});
+document.getElementById("togglePassword").addEventListener("click", function() {
+  var passField = document.getElementById("floatingPass");
+  var icon = document.getElementById("togglePassword");
+  if (passField.type === "password") {
+    passField.type = "text";
+    icon.classList.remove("bi-eye-slash");
+    icon.classList.add("bi-eye");
+  } else {
+    passField.type = "password";
+    icon.classList.remove("bi-eye");
+    icon.classList.add("bi-eye-slash");
+  }
 });

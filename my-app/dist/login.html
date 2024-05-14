@@ -16,6 +16,7 @@
 
   <link rel="icon" type="image/x-icon" href="/assets/favicon.432f0523.ico" />
   <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkFwcCIsCiAgInNob3J0X25hbWUiOiAiQXBwIiwKICAic3RhcnRfdXJsIjogImluZGV4Lmh0bWwiLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi00OC53ZWJwIiwKICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIiwKICAgICAgInNpemVzIjogIjQ4eDQ4IiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi03Mi53ZWJwIiwKICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIiwKICAgICAgInNpemVzIjogIjcyeDcyIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi05Ni53ZWJwIiwKICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIiwKICAgICAgInNpemVzIjogIjk2eDk2IiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi0xMjgud2VicCIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICJzaXplcyI6ICIxMjh4MTI4IiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi0xOTIud2VicCIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICJzaXplcyI6ICIxOTJ4MTkyIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi0yNTYud2VicCIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICJzaXplcyI6ICIyNTZ4MjU2IiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi01MTIud2VicCIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfQogIF0sCiAgImJhY2tncm91bmRfY29sb3IiOiAiIzMxZDUzZCIsCiAgInRoZW1lX2NvbG9yIjogIiMzMWQ1M2QiCn0K" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -35,9 +36,9 @@
    <!-- fonts end -->
   
   <meta name="theme-color" content="#31d53d" />
-  <script type="module" crossorigin src="/assets/login.a392969a.js"></script>
-  <link rel="modulepreload" href="/assets/loader.266516c8.js">
-  <link rel="stylesheet" href="/assets/loader.c785496c.css">
+  <script type="module" crossorigin src="/assets/login.ea38b1a2.js"></script>
+  <link rel="modulepreload" href="/assets/loader.ea51d4ef.js">
+  <link rel="stylesheet" href="/assets/loader.3004e9ee.css">
 </head>
 
 <body id="indexbody">
@@ -92,11 +93,11 @@
             </div>
     
     
-          <div class="form-floating mb-3 mx-2">
+          <div class="form-floating mb-3 mx-2 d-flex">
             <input name="password" type="password" id="floatingPass" class="form-control" aria-describedby="passwordHelpBlock"
             placeholder="password" required>
               <label  for="floatingEmail" id="labelleft"> <i class="icon bi bi-lock bi-lg me-1"></i>Password:</label>
-              
+              <i id="togglePassword" class="bi bi-eye-slash" style="cursor: pointer;"></i>
           </div>
     
     
@@ -175,6 +176,6 @@
                 loader.style.display = "none";
               })
             </script>
-  
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 </html>

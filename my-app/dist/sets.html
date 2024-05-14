@@ -13,6 +13,7 @@
     <link rel="icon" type="image/x-icon" href="/assets/favicon.432f0523.ico" />
     <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkFwcCIsCiAgInNob3J0X25hbWUiOiAiQXBwIiwKICAic3RhcnRfdXJsIjogImluZGV4Lmh0bWwiLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi00OC53ZWJwIiwKICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIiwKICAgICAgInNpemVzIjogIjQ4eDQ4IiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi03Mi53ZWJwIiwKICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIiwKICAgICAgInNpemVzIjogIjcyeDcyIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi05Ni53ZWJwIiwKICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIiwKICAgICAgInNpemVzIjogIjk2eDk2IiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi0xMjgud2VicCIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICJzaXplcyI6ICIxMjh4MTI4IiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi0xOTIud2VicCIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICJzaXplcyI6ICIxOTJ4MTkyIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi0yNTYud2VicCIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICJzaXplcyI6ICIyNTZ4MjU2IiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi01MTIud2VicCIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfQogIF0sCiAgImJhY2tncm91bmRfY29sb3IiOiAiIzMxZDUzZCIsCiAgInRoZW1lX2NvbG9yIjogIiMzMWQ1M2QiCn0K" />
     
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -34,10 +35,10 @@
     <!-- fonts end -->
 
     <meta name="theme-color" content="#31d53d" />
-    <script type="module" crossorigin src="/assets/sets.8df6437a.js"></script>
-    <link rel="modulepreload" href="/assets/loader.266516c8.js">
+    <script type="module" crossorigin src="/assets/sets.a34cac6a.js"></script>
+    <link rel="modulepreload" href="/assets/loader.ea51d4ef.js">
     <link rel="modulepreload" href="/assets/mover.71caf343.js">
-    <link rel="stylesheet" href="/assets/loader.c785496c.css">
+    <link rel="stylesheet" href="/assets/loader.3004e9ee.css">
   </head>
 
   <body id="home_index">
@@ -144,9 +145,10 @@
 
             <li class="nav-item d-grid gap-2 me-2 mt-4">
               <!-- logout button-->
-              <a class="nav-link" id="btn_logout">
+              <a class="nav-link">
                 <button
                 type="button"
+                id="btn_logout"
                   class="btn w-100"
                   style="background-color: #2b1055; color: aliceblue"
                 >
@@ -286,13 +288,11 @@
               ></button>
             </div>
             <div class="container">
-              <input
-                class="form-control mr-sm-2"
-                type="text"
-                name="keyword"
-                placeholder="Input tittle or descreption."
-                aria-label="Search"
-              />
+              <div class="form-floating mb-3 mx-2">
+                <input name="keyword" type="text" id="floatingPass" class="form-control" 
+                placeholder="Input title or descreption." aria-label="Search" required>
+                  <label  id="labelleft"> <i class="fa fa-search" aria-hidden="true"></i> Input title or descreption.</label>
+            </div>
             </div>
             <div class="modal-footer">
               <button
@@ -664,6 +664,7 @@
       });
     </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     
   </body>

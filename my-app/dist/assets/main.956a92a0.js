@@ -1,4 +1,4 @@
-import "./loader.266516c8.js";
+import "./loader.ea51d4ef.js";
 import "./mover.71caf343.js";
 const form_register = document.getElementById("form_register");
 form_register.onclick = async (e) => {

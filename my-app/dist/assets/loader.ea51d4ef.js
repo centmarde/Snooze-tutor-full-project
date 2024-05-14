@@ -10020,6 +10020,7 @@ function setRouter() {
     case "/help.html":
     case "/accept.html":
     case "/sets.html":
+    case "/home.html":
       if (!isLoggedIn) {
         window.location.pathname = "/index.html";
       }

@@ -1,4 +1,4 @@
-import { s as supabase } from "./loader.266516c8.js";
+import { s as supabase } from "./loader.ea51d4ef.js";
 import "./mover.71caf343.js";
 const parentIdFromStorage = localStorage.getItem("parentId");
 getSet();
@@ -62,7 +62,18 @@ async function getPages() {
 function lockInAnswer(dataset) {
   const selectedChoice = document.querySelector('input[type="radio"]:checked');
   if (!selectedChoice) {
-    alert("Please select a choice before proceeding.");
+    Toastify({
+      text: "please select a choice before proceeding.",
+      duration: 3e3,
+      newWindow: true,
+      close: true,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      className: "centered-toast",
+      onClick: function() {
+      }
+    }).showToast();
     return;
   }
   const confirmation = confirm("Lock in answer?");
@@ -94,12 +105,34 @@ function lockInAnswer(dataset) {
         document.getElementById("choiceD").innerHTML = "";
       }
     } else {
-      alert("End of dataset reached.");
+      Toastify({
+        text: "end of dataset reached",
+        duration: 3e3,
+        newWindow: true,
+        close: true,
+        gravity: "top",
+        position: "center",
+        stopOnFocus: true,
+        className: "centered-toast",
+        onClick: function() {
+        }
+      }).showToast();
       localStorage.setItem("userSelections", JSON.stringify(userSelections));
       $("#form_celebration").modal("show");
     }
   } else {
-    alert("Process aborted.");
+    Toastify({
+      text: "Question not locked in",
+      duration: 3e3,
+      newWindow: true,
+      close: true,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      className: "centered-toast",
+      onClick: function() {
+      }
+    }).showToast();
   }
   console.log(userSelections);
 }

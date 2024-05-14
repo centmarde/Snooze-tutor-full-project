@@ -1,5 +1,19 @@
-import { d as doLogout, s as supabase, e as errorNotification } from "./loader.266516c8.js";
+import { d as doLogout, s as supabase, e as errorNotification } from "./loader.ea51d4ef.js";
 import "./mover.71caf343.js";
+document.body.addEventListener("click", function(event) {
+  if (event.target.id === "btn_logout") {
+    document.querySelector("#btn_logout").disabled = true;
+    document.querySelector("#btn_logout").innerHTML = `<div class="spinner-border spinner-border-sm me-2" role="status"></div><span>Loading...</span>`;
+    doLogout().then(() => {
+      document.querySelector("#btn_logout").disabled = false;
+      document.querySelector("#btn_logout").innerHTML = "Log-Out";
+    }).catch((error) => {
+      console.error("Logout failed:", error);
+      document.querySelector("#btn_logout").disabled = false;
+      document.querySelector("#btn_logout").innerHTML = "Log-Out";
+    });
+  }
+});
 $(document).ready(function() {
   function getUrlParameter(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -12,16 +26,10 @@ $(document).ready(function() {
   }
 });
 const form_search = document.getElementById("form_search");
-const btn_logout = document.getElementById("btn_logout");
 const userId = localStorage.getItem("user_id");
 const form_set_creation = document.getElementById("form_set_creation");
 const form_set_making = document.getElementById("form_set_making");
 getSet();
-btn_logout.onclick = doLogout;
-document.querySelector("#btn_logout button").disabled = true;
-document.querySelector(
-  "#btn_logout button"
-).innerHTML = `<span>Loading...</span>`;
 form_search.onsubmit = async (e) => {
   e.preventDefault();
   const formData = new FormData(form_search);
@@ -168,7 +176,18 @@ let setIdPromise = new Promise((resolve, reject) => {
       if (error) {
         throw error.message;
       } else {
-        alert("Set Successfully Added!");
+        Toastify({
+          text: `set ${title} created successfully!`,
+          duration: 3e3,
+          newWindow: true,
+          close: true,
+          gravity: "top",
+          position: "center",
+          stopOnFocus: true,
+          className: "centered-toast",
+          onClick: function() {
+          }
+        }).showToast();
         const setId = data[0].id;
         $("#modal_set_making").modal("show");
         document.getElementById("btn-close").click();
@@ -236,10 +255,6 @@ newPage.addEventListener("click", () => {
   $("#form_celebration").modal("show");
   document.getElementById("btn_close2").click();
 });
-document.querySelector("#btn_logout button[type='button']").disabled = false;
-document.querySelector(
-  "#btn_logout button[type='button']"
-).innerHTML = `Log-Out`;
 document.getElementById("finnishButton").addEventListener("click", function() {
   let counter = document.getElementById("counter");
   let currentValue = parseInt(counter.textContent);
