@@ -3,14 +3,22 @@ import "./mover.71caf343.js";
 const itemsImageUrl = "https://plsyfklzwmasyypcuwei.supabase.co/storage/v1/object/public/profilePic/";
 const userId = localStorage.getItem("user_id");
 const form_item = document.getElementById("form_item");
-const btn_logout = document.getElementById("btn_logout");
 const form_search = document.getElementById("form_search");
+document.body.addEventListener("click", function(event) {
+  if (event.target.id === "btn_logout") {
+    document.querySelector("#btn_logout").disabled = true;
+    document.querySelector("#btn_logout").innerHTML = `<div class="spinner-border spinner-border-sm me-2" role="status"></div><span>Loading...</span>`;
+    doLogout().then(() => {
+      document.querySelector("#btn_logout").disabled = false;
+      document.querySelector("#btn_logout").innerHTML = "Log-Out";
+    }).catch((error) => {
+      console.error("Logout failed:", error);
+      document.querySelector("#btn_logout").disabled = false;
+      document.querySelector("#btn_logout").innerHTML = "Log-Out";
+    });
+  }
+});
 console.log("User ID:", userId);
-document.querySelector("#btn_logout button").disabled = true;
-document.querySelector(
-  "#btn_logout button"
-).innerHTML = `<span>Loading...</span>`;
-btn_logout.onclick = doLogout;
 getDatas();
 getQuestions();
 async function getDatas() {
@@ -26,7 +34,7 @@ async function getterAllquestions() {
   const count = questions[0].count;
   let container = "";
   questions.forEach((data_s) => {
-    container += `<p class="mt-2" data-id="${data_s.id}"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-question-diamond me-2" viewBox="0 0 16 16">
+    container += `<p class="mt-2 text-center" data-id="${data_s.id}"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-question-diamond me-2" viewBox="0 0 16 16">
     <path d="M6.95.435c.58-.58 1.52-.58 2.1 0l6.515 6.516c.58.58.58 1.519 0 2.098L9.05 15.565c-.58.58-1.519.58-2.098 0L.435 9.05a1.48 1.48 0 0 1 0-2.098zm1.4.7a.495.495 0 0 0-.7 0L1.134 7.65a.495.495 0 0 0 0 .7l6.516 6.516a.495.495 0 0 0 .7 0l6.516-6.516a.495.495 0 0 0 0-.7L8.35 1.134z"/>
     <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"/>
   </svg>Total Questions: ${count}</p>`;
@@ -308,9 +316,9 @@ async function getQuestions(keyword = "") {
            </div>
            <div class="modal-body">
            <div class="mb-3">
-           <label for="input_comment" class="form-label">Input:</label>
-           <textarea class="form-control" name="input_comment" id="input_comment" rows="3"></textarea>
-         </div>
+          <label for="input_comment" class="form-label">Input:</label>
+          <textarea class="form-control" name="input_comment" id="input_comment" rows="3"></textarea>
+        </div>
            </div>
            <div class="modal-footer">
              <button type="button" id="modal_close_heart" class="btn" data-bs-dismiss="modal" style="background-color: #e00909; color: white;">Cancel</button>
@@ -337,7 +345,7 @@ async function getQuestions(keyword = "") {
            <div class="modal-body">
            <div class="mb-3">
            <label for="input_comment" class="form-label">Input:</label>
-           <textarea class="form-control" name="input_comment" id="input_comment" rows="3"></textarea>
+           <textarea class="form-control" name="input_comment" id="input_comment_text" rows="3"></textarea>
          </div>
            </div>
            <div class="modal-footer">
@@ -376,14 +384,47 @@ async function getQuestions(keyword = "") {
         }
       ]);
       if (commentError2) {
-        alert("Error occurred while adding comment. Please try again.");
+        Toastify({
+          text: "error occurred while deleting comment. Please try again.",
+          duration: 3e3,
+          newWindow: true,
+          close: true,
+          gravity: "top",
+          position: "center",
+          stopOnFocus: true,
+          className: "centered-toast",
+          onClick: function() {
+          }
+        }).showToast();
       } else {
-        alert("Comment added successfully!");
+        Toastify({
+          text: "comment added successfully.",
+          duration: 3e3,
+          newWindow: true,
+          close: true,
+          gravity: "top",
+          position: "center",
+          stopOnFocus: true,
+          className: "centered-toast",
+          onClick: function() {
+          }
+        }).showToast();
         location.reload();
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("An unexpected error occurred. Please try again later.");
+      Toastify({
+        text: "unexpected error occurred. Please try again.",
+        duration: 3e3,
+        newWindow: true,
+        close: true,
+        gravity: "top",
+        position: "center",
+        stopOnFocus: true,
+        className: "centered-toast",
+        onClick: function() {
+        }
+      }).showToast();
     }
   };
   document.getElementById("indexContainer").innerHTML = questionContainer;
@@ -445,12 +486,6 @@ async function getQuestions(keyword = "") {
     }
     document.getElementById(`commentWrapper${index}`).innerHTML = commentWrapper + showMoreLink;
   });
-  document.body.addEventListener("click", function(event) {
-    if (event.target.classList.contains("delete-comment")) {
-      const comment_id = event.target.getAttribute("data-id");
-      console.log(comment_id);
-    }
-  });
   document.querySelectorAll(".show-comments").forEach((anchor) => {
     anchor.addEventListener("click", function(event) {
       event.preventDefault();
@@ -496,6 +531,13 @@ async function getQuestions(keyword = "") {
   });
 }
 document.body.addEventListener("click", function(event) {
+  if (event.target.classList.contains("edit-comment")) {
+    const edit_id = event.target.getAttribute("data-id");
+    console.log(edit_id);
+    editComment(edit_id);
+  }
+});
+document.body.addEventListener("click", function(event) {
   if (event.target.classList.contains("btn-outline-danger")) {
     const data_id = event.target.getAttribute("data-id");
     console.log(data_id);
@@ -510,17 +552,59 @@ async function deleteComment(commentId) {
       if (error) {
         throw error;
       }
-      alert("Comment Successfully Deleted!");
+      Toastify({
+        text: "Comment deleted successfully.",
+        duration: 3e3,
+        newWindow: true,
+        close: true,
+        gravity: "top",
+        position: "center",
+        stopOnFocus: true,
+        className: "centered-toast",
+        onClick: function() {
+        }
+      }).showToast();
       window.location.reload();
     } else {
-      alert("Delete operation cancelled.");
+      Toastify({
+        text: "deletion aborted.",
+        duration: 3e3,
+        newWindow: true,
+        close: true,
+        gravity: "top",
+        position: "center",
+        stopOnFocus: true,
+        className: "centered-toast",
+        onClick: function() {
+        }
+      }).showToast();
     }
   } catch (error) {
-    alert("Something wrong happened. Cannot delete comment.");
-    alert(error.message);
+    Toastify({
+      text: "something wrong happened. Cannot delete comment.",
+      duration: 3e3,
+      newWindow: true,
+      close: true,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      className: "centered-toast",
+      onClick: function() {
+      }
+    }).showToast();
     window.location.reload();
   }
 }
+const editComment = async (edit_id) => {
+  let { data: comments, error } = await supabase.from("comments").select("*").eq("id", edit_id);
+  if (error == null) {
+    comments[0].id;
+    document.getElementById("input_comment_text").value = comments[0].comment_text;
+  } else {
+    errorNotification("Something wrong happened. Cannot show item.", 15);
+    console.log(error);
+  }
+};
 form_modal.onsubmit = async (e) => {
   e.preventDefault();
   document.querySelector("#form_modal button").disabled = true;
@@ -640,10 +724,6 @@ async function updateRank(rank_name) {
     console.error("Error:", error.message);
   }
 }
-document.querySelector("#btn_logout button[type='button']").disabled = false;
-document.querySelector(
-  "#btn_logout button[type='button']"
-).innerHTML = `Log-Out`;
 $(document).ready(function() {
   $("#createS").click(function() {
     window.location.href = "./sets.html?showModal=true";

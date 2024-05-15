@@ -417,6 +417,28 @@ section::before
   transform: rotate(90deg);
 }
 
+/* CSS to center and make the toast bigger */
+.centered-toast {
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: "Style Script", cursive;
+  font-size: 20px; /* Change the font size to make it bigger */
+}
+#togglePassword{
+  position: absolute;
+  top: 16px;
+  right: 10px;
+}
+#togglePassword1{
+  position: absolute;
+  top: 16px;
+  right: 10px;
+}
+#togglePassword2{
+  position: absolute;
+  top: 16px;
+  right: 10px;
+}
 /*!
  * Bootstrap  v5.3.2 (https://getbootstrap.com/)
  * Copyright 2011-2023 The Bootstrap Authors

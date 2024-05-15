@@ -256,7 +256,18 @@ async function getDatas() {
     document.getElementById("indexContainer").innerHTML = questionContainer;
     document.getElementById("rank").innerHTML = rankContainer;
   } catch (error) {
-    alert("Error fetching data:", error);
+    Toastify({
+      text: `Error fetching data: ${error.message}`,
+      duration: 3e3,
+      newWindow: true,
+      close: true,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      className: "centered-toast",
+      onClick: function() {
+      }
+    }).showToast();
     window.location.reload();
   }
 }
@@ -289,11 +300,38 @@ const deleteQuestion = async (e) => {
   }
   try {
     const { error } = await supabase.from("questions").delete().eq("id", id);
-    successNotification("Item Successfully Deleted!", 15);
-    window.location.reload();
+    Toastify({
+      text: "question deleted successfully",
+      duration: 3e3,
+      newWindow: true,
+      close: true,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      className: "centered-toast",
+      onClick: function() {
+      }
+    }).showToast();
+    setTimeout(function() {
+      window.location.reload();
+    }, 1500);
   } catch (error) {
     errorNotification("Something wrong happened. Cannot delete item.", 15);
-    alert(error);
+    Toastify({
+      text: `Error: ${error.message}`,
+      duration: 3e3,
+      newWindow: true,
+      close: true,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      className: "centered-toast",
+      onClick: function() {
+      }
+    }).showToast();
+    setTimeout(function() {
+      window.location.reload();
+    }, 1500);
   }
 };
 let update_questions = "";
@@ -307,7 +345,7 @@ const editAction_question = async (e) => {
   setLoading(false);
   if (error == null) {
     update_questions = questions[0].id;
-    document.getElementById("tittle").value = questions[0].tittle;
+    document.getElementById("title").value = questions[0].title;
     document.getElementById("question_text").value = questions[0].question_text;
     document.getElementById("answer_text").value = questions[0].answer_text;
   } else {
@@ -336,7 +374,7 @@ form_modal_questions_edit.onsubmit = async (e) => {
   if (update_questions == "") {
     const { data, error } = await supabase.from("questions").insert([
       {
-        tittle: formData.get("tittle"),
+        title: formData.get("title"),
         question_text: formData.get("question_text"),
         answer_text: formData.get("answer_text")
       }
@@ -350,7 +388,7 @@ form_modal_questions_edit.onsubmit = async (e) => {
     }
   } else {
     const { data, error } = await supabase.from("questions").update({
-      tittle: formData.get("tittle"),
+      title: formData.get("title"),
       question_text: formData.get("question_text"),
       answer_text: formData.get("answer_text")
     }).eq("id", update_questions).select();
@@ -377,7 +415,18 @@ document.getElementById("form_item").addEventListener("submit", function(event) 
   const fileInput = document.getElementById("imageUpload");
   const file = fileInput.files[0];
   if (!file || file.size === 0) {
-    alert("Please select a non-empty image file.");
+    Toastify({
+      text: "please select an image",
+      duration: 3e3,
+      newWindow: true,
+      close: true,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      className: "centered-toast",
+      onClick: function() {
+      }
+    }).showToast();
     event.preventDefault();
   }
 });
@@ -423,11 +472,32 @@ async function getSets() {
       }
       try {
         const { error: error2 } = await supabase.from("set").delete().eq("id", id);
-        alert("Item Successfully Deleted!");
+        Toastify({
+          text: "set deleted successfully",
+          duration: 3e3,
+          newWindow: true,
+          close: true,
+          gravity: "top",
+          position: "center",
+          stopOnFocus: true,
+          className: "centered-toast",
+          onClick: function() {
+          }
+        }).showToast();
         window.location.reload();
       } catch (error2) {
-        alert("Error Somethings Wrong!");
-        alert(error2);
+        Toastify({
+          text: `Error: ${error2.message}`,
+          duration: 3e3,
+          newWindow: true,
+          close: true,
+          gravity: "top",
+          position: "center",
+          stopOnFocus: true,
+          className: "centered-toast",
+          onClick: function() {
+          }
+        }).showToast();
         window.location.reload();
       }
     };
@@ -441,7 +511,18 @@ async function getSets() {
       });
     });
   } catch {
-    alert("Failed to fetch Sets");
+    Toastify({
+      text: "error failed to fetch sets",
+      duration: 3e3,
+      newWindow: true,
+      close: true,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      className: "centered-toast",
+      onClick: function() {
+      }
+    }).showToast();
     window.location.reload();
   }
 }
@@ -492,7 +573,18 @@ async function getPages(setId) {
     });
   } catch (error) {
     console.error("Failed to fetch pages:", error);
-    alert("Failed to fetch pages");
+    Toastify({
+      text: "failed to fetch pages",
+      duration: 3e3,
+      newWindow: true,
+      close: true,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      className: "centered-toast",
+      onClick: function() {
+      }
+    }).showToast();
     window.location.reload();
   }
 }
@@ -512,7 +604,18 @@ const editSets = async (setId) => {
     document.getElementById("answer").value = formData.answer;
   } catch (error) {
     console.error("Error editing set:", error);
-    alert("Something went wrong. Unable to edit set.");
+    Toastify({
+      text: "something wrong happened. Cannot edit Set.",
+      duration: 3e3,
+      newWindow: true,
+      close: true,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      className: "centered-toast",
+      onClick: function() {
+      }
+    }).showToast();
     window.location.reload();
   }
 };
@@ -530,14 +633,47 @@ const innerQuestion = async () => {
       answer: formData.get("answer")
     }).eq("id", setId);
     if (!updateError) {
-      alert("Set Successfully Updated!");
+      Toastify({
+        text: "Set updated successfully.",
+        duration: 3e3,
+        newWindow: true,
+        close: true,
+        gravity: "top",
+        position: "center",
+        stopOnFocus: true,
+        className: "centered-toast",
+        onClick: function() {
+        }
+      }).showToast();
     } else {
-      alert("Something wrong happened. Cannot update Set.");
+      Toastify({
+        text: "something wrong happened. Cannot update Set.",
+        duration: 3e3,
+        newWindow: true,
+        close: true,
+        gravity: "top",
+        position: "center",
+        stopOnFocus: true,
+        className: "centered-toast",
+        onClick: function() {
+        }
+      }).showToast();
       console.log(updateError);
     }
   } catch (error) {
     console.error("Error updating set:", error);
-    alert("Something went wrong. Unable to update set.");
+    Toastify({
+      text: "something wrong happened. Cannot update Set.",
+      duration: 3e3,
+      newWindow: true,
+      close: true,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      className: "centered-toast",
+      onClick: function() {
+      }
+    }).showToast();
   }
   edit_set_question.reset();
   window.location.reload();
@@ -558,10 +694,32 @@ const deleteSet2 = async (e) => {
   }
   try {
     const { error } = await supabase.from("set_pages").delete().eq("id", id);
-    alert("Item Successfully Deleted!");
+    Toastify({
+      text: "pages deleted successfully",
+      duration: 3e3,
+      newWindow: true,
+      close: true,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      className: "centered-toast",
+      onClick: function() {
+      }
+    }).showToast();
     window.location.reload();
   } catch (error) {
-    alert("Error Somethings Wrong!");
+    Toastify({
+      text: `Error: ${error.message}`,
+      duration: 3e3,
+      newWindow: true,
+      close: true,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      className: "centered-toast",
+      onClick: function() {
+      }
+    }).showToast();
     console.error(error);
   }
 };

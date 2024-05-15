@@ -22,6 +22,7 @@
   
   
   
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
   
      <!-- fonts -->
@@ -37,9 +38,9 @@
 
   
   <meta name="theme-color" content="#31d53d" />
-  <script type="module" crossorigin src="/assets/register.726ea6e0.js"></script>
+  <script type="module" crossorigin src="/assets/register.fe363452.js"></script>
   <link rel="modulepreload" href="/assets/loader.ea51d4ef.js">
-  <link rel="stylesheet" href="/assets/loader.c785496c.css">
+  <link rel="stylesheet" href="/assets/loader.3004e9ee.css">
 </head>
 <body id="indexbody">
 
@@ -89,16 +90,19 @@
           <label for="usersername" id="labelleft"><i class="bi bi-person me-1"></i>Username</label>
         </div>
     
-        <div class="form-floating mb-3 mx-2">
-          <input name="password" type="password" class="form-control" id="password" placeholder="Password" required>
-          <label for="password" id="labelleft"><i class="bi bi-key me-1"></i>Password</label>
-        </div>
-    
-        <div class="form-floating mb-3 mx-2">
+        <div class="form-floating mb-3 mx-2 d-flex">
+          <input name="password" type="password" id="floatingPass" class="form-control" aria-describedby="passwordHelpBlock"
+                 placeholder="password" required>
+          <label for="floatingEmail" id="labelleft"> <i class="icon bi bi-lock bi-lg me-1"></i>Password:</label>
+          <i id="togglePassword1" class="bi bi-eye-slash" style="cursor: pointer;"></i>
+      </div>
+      
+      <div class="form-floating mb-3 mx-2">
           <input name="password_confirm" type="password" class="form-control" id="password_confirm"
-            placeholder="Password-confirmation" required>
-            <label for="password_confirm" id="labelleft"><i class="bi bi-key me-1"></i>Password Confirmation</label>
-        </div>
+                 placeholder="Password-confirmation" required>
+          <label for="password_confirm" id="labelleft"><i class="bi bi-key me-1"></i>Password Confirmation</label>
+          <i id="togglePassword2" class="bi bi-eye-slash" style="cursor: pointer;"></i>
+      </div>
     
         <div class="text-center justify-content-center my-2">
           
@@ -131,5 +135,6 @@
           loader.style.display = "none";
         })
       </script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 </html>

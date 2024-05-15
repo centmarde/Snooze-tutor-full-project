@@ -26,17 +26,42 @@ form_register.onsubmit = async (e) => {
         }
       ]).select();
       if (error2 == null) {
-        successNotification("Register Successfully please verify your email.<a href = './login.html'>Click Here to Log-in!</a>", 10);
+        successNotification(
+          "Register Successfully please verify your email.<a href = './login.html'>Click Here to Log-in!</a>",
+          10
+        );
         console.log(data2);
         console.log(error2);
       } else {
-        alert(`Error: ${error2.message}`, 10);
+        Toastify({
+          text: `Error: ${error2.message}`,
+          duration: 3e3,
+          newWindow: true,
+          close: true,
+          gravity: "top",
+          position: "center",
+          stopOnFocus: true,
+          className: "centered-toast",
+          onClick: function() {
+          }
+        }).showToast();
       }
       form_register.reset();
       document.querySelector("#form_register button").disabled = false;
       document.querySelector("#form_register button").innerHTML = "Register";
     } else {
-      alert(`Error: ${error.message}`, 10);
+      Toastify({
+        text: `Error: ${error.message}`,
+        duration: 3e3,
+        newWindow: true,
+        close: true,
+        gravity: "top",
+        position: "center",
+        stopOnFocus: true,
+        className: "centered-toast",
+        onClick: function() {
+        }
+      }).showToast();
     }
   } else {
     errorNotification("Password not match", 10);
@@ -44,3 +69,22 @@ form_register.onsubmit = async (e) => {
     document.querySelector("#form_register button").innerHTML = "Register";
   }
 };
+document.getElementById("togglePassword1").addEventListener("click", function() {
+  togglePasswordVisibility("floatingPass", "togglePassword1");
+});
+document.getElementById("togglePassword2").addEventListener("click", function() {
+  togglePasswordVisibility("password_confirm", "togglePassword2");
+});
+function togglePasswordVisibility(inputId, iconId) {
+  var passField = document.getElementById(inputId);
+  var icon = document.getElementById(iconId);
+  if (passField.type === "password") {
+    passField.type = "text";
+    icon.classList.remove("bi-eye-slash");
+    icon.classList.add("bi-eye");
+  } else {
+    passField.type = "password";
+    icon.classList.remove("bi-eye");
+    icon.classList.add("bi-eye-slash");
+  }
+}

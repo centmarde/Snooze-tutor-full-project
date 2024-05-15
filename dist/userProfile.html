@@ -18,6 +18,7 @@
       nomodule
       src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.js"
     ></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="icon" type="image/x-icon" href="/assets/favicon.432f0523.ico" />
     <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkFwcCIsCiAgInNob3J0X25hbWUiOiAiQXBwIiwKICAic3RhcnRfdXJsIjogImluZGV4Lmh0bWwiLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi00OC53ZWJwIiwKICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIiwKICAgICAgInNpemVzIjogIjQ4eDQ4IiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi03Mi53ZWJwIiwKICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIiwKICAgICAgInNpemVzIjogIjcyeDcyIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi05Ni53ZWJwIiwKICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIiwKICAgICAgInNpemVzIjogIjk2eDk2IiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi0xMjgud2VicCIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICJzaXplcyI6ICIxMjh4MTI4IiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi0xOTIud2VicCIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICJzaXplcyI6ICIxOTJ4MTkyIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi0yNTYud2VicCIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICJzaXplcyI6ICIyNTZ4MjU2IiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJhc3NldHMvaWNvbnMvaWNvbi01MTIud2VicCIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfQogIF0sCiAgImJhY2tncm91bmRfY29sb3IiOiAiIzMxZDUzZCIsCiAgInRoZW1lX2NvbG9yIjogIiMzMWQ1M2QiCn0K" />
     
@@ -25,13 +26,19 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,100..900;1,100..900&family=Style+Script&display=swap"
+      rel="stylesheet"
+    />
     
     
     
     <meta name="theme-color" content="#31d53d" />
-    <script type="module" crossorigin src="/assets/userProfile.242cb892.js"></script>
+    <script type="module" crossorigin src="/assets/userProfile.a3097173.js"></script>
     <link rel="modulepreload" href="/assets/loader.ea51d4ef.js">
-    <link rel="stylesheet" href="/assets/loader.c785496c.css">
+    <link rel="stylesheet" href="/assets/loader.3004e9ee.css">
   </head>
 
   <body>
@@ -127,7 +134,7 @@
                 <form id="form_item">
                   <!-- Modal Body -->
                   <div class="modal-body">
-                    <span>must fill up all form</span>
+                    
                     <!-- Username Field -->
                     <div class="row mb-3">
                       <div class="col-sm-12">
@@ -139,6 +146,7 @@
                           placeholder="username"
                          
                         />
+                        <span>username</span>
                       </div>
                       <div class="col-sm-12 mt-3">
                         <input
@@ -150,6 +158,7 @@
                          
                         />
                       </div>
+                      <span>firstname</span>
 
                       <div class="col-sm-12 mt-3">
                         <input
@@ -161,6 +170,7 @@
                          
                         />
                       </div>
+                      <span>lastname</span>
 
                       <div class="col-sm-12 mt-3">
                         <input
@@ -172,8 +182,10 @@
                           rows="1"
                         />
                       </div>
-                    </div>
+                      <span>mobile number</span>
 
+                    </div>
+                   
                     
               
 
@@ -189,7 +201,9 @@
                           
                         ></textarea>
                       </div>
+                      <span>about</span>
                     </div>
+                   
 
                     <!-- Dislikes -->
                     <div class="row mb-3">
@@ -202,8 +216,10 @@
                           rows="1"
                         ></textarea>
                       </div>
-                    </div>
+                      <span>dislikes</span>
 
+                    </div>
+                    
                     <!-- likes -->
                     <div class="row mb-3">
                       <div class="col-sm-12">
@@ -216,7 +232,10 @@
                         
                         ></textarea>
                       </div>
+                      <span>likes</span>
+
                     </div>
+                   
 
                     <!-- Image File Field; Comment this div, if no upload functionality -->
                     <div class="row mb-3">
@@ -500,8 +519,8 @@
                     <input
                       class="form-control"
                       type="text"
-                      name="tittle"
-                      id="tittle"
+                      name="title"
+                      id="title"
                       placeholder="title"
                     
                      
@@ -727,7 +746,7 @@
         loader.style.display = "none";
       });
     </script>
-    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
   </body>
 </html>
